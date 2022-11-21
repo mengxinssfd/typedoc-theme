@@ -13,6 +13,9 @@ export const style = `
 }
 .container-main {
   padding: 2.5rem 0 0;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .menu-sticky-wrap {
 
