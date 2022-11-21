@@ -52,8 +52,8 @@ export function primaryNavigation(
           <h3>{context.icons.chevronDown()} Modules</h3>
         </summary>
         <div class="tsd-accordion-details">
-          <ul>
-            <li class={classNames({ current, selected })}>
+          <ul class="modules">
+            <li class={classNames({ current, selected }) + 'module'}>
               <a href={context.urlTo(props.model.project)}>{wbr(props.project.name)}</a>
               <ul>{int.map((i) => link(i, getReadme))}</ul>
             </li>
