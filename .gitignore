@@ -20,3 +20,5 @@ node_modules/
 
 # Output of running `yarn typedoc src` on this repo
 docs
+
+.idea

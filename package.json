@@ -1,9 +1,9 @@
 {
-  "name": "typedoc-custom-theme-demo",
-  "version": "2.0.0",
+  "name": "@mxssfd/typedoc-theme",
+  "version": "1.0.0",
   "main": "dist/index.js",
-  "repository": "git@github.com:Gerrit0/typedoc-custom-theme-demo.git",
-  "author": "Gerrit Birkeland <gerrit@gerritbirkeland.com>",
+  "repository": "https://github.com/mengxinssfd/typedoc-theme.git",
+  "author": "DYH <xinzon32177@163.com>",
   "license": "MIT",
   "keywords": [
     "typedoc-theme"
@@ -12,15 +12,18 @@
     "node": ">= 14"
   },
   "devDependencies": {
-    "typedoc": "^0.23.0",
-    "typescript": "^4.7.4"
+    "prettier": "^2.7.1",
+    "typedoc": "^0.23.21",
+    "typescript": "^4.9.3"
   },
   "peerDependencies": {
-    "typedoc": "^0.23.0"
+    "typedoc": "^0.23.21"
   },
   "scripts": {
+    "ts-check": "tsc --noEmit",
     "build": "tsc",
     "predocs": "tsc",
-    "docs": "typedoc src --plugin dist/index.js"
+    "docs": "typedoc src --plugin ./dist/index.js --theme my-theme",
+    "docs:only": "typedoc src --plugin ./dist/index.js --theme my-theme"
   }
 }
