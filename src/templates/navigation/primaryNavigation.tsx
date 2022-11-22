@@ -53,8 +53,8 @@ export function primaryNavigation(
         </summary>
         <div class="tsd-accordion-details">
           <ul class="modules">
-            <li class={classNames({ current, selected }) + 'module'}>
-              <a href={context.urlTo(props.model.project)}>{wbr(props.project.name)}</a>
+            <li class={classNames({ current, selected }) + ' module'}>
+              {/*<a href={context.urlTo(props.model.project)}>{wbr(props.project.name)}</a>*/}
               <ul>{int.map((i) => link(i, getReadme))}</ul>
             </li>
             {ext.map((i) => link(i))}

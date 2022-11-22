@@ -82,4 +82,6 @@ code.tsd-tag {
 #tsd-search.has-focus .tsd-navigation.settings {
   visibility: hidden;
 }
-
+.tsd-navigation.primary ul li li a {
+  margin-left: 0.5rem;
+}
