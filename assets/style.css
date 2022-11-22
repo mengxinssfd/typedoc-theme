@@ -37,7 +37,7 @@
   box-sizing: border-box;
 }
 .col-menu {
-  flex: 0 0 16rem;
+  flex: 0 0 20rem;
   border-left: 0;
   padding-left: 1rem;
   padding-right: 0.1rem;
