@@ -79,3 +79,7 @@ code.tsd-tag {
   border: 0;
 }
 
+#tsd-search.has-focus .tsd-navigation.settings {
+  visibility: hidden;
+}
+
