@@ -75,7 +75,25 @@ export function partition<T>(iter: Iterable<T>, predicate: (item: T) => boolean)
 
 export function getComment(model: DeclarationReflection) {
   const comment = model.comment || model.signatures?.[0].comment;
-  const commentContent = comment?.summary?.[0]?.text.split(/(\r?\n)+/)[0];
+  const summary = comment?.summary ?? [];
+
+  let content = [];
+  for (const line of summary) {
+    let lineText = line.text;
+
+    const indexOfNewline = lineText.indexOf('\n');
+    if (indexOfNewline !== -1) {
+      content[content.length - 1] = content[content.length - 1] + lineText.slice(0, indexOfNewline);
+      break;
+    }
+
+    content.push(lineText.trim());
+  }
+
+  const commentContent = content
+    .join(' ')
+    .replace(/\s,\s/g, ", ")
+    .replace(/\s\./g, ".");
   return commentContent ? <div class="menu-item-desc">{commentContent}</div> : '';
 }
 export function getReadme(model: DeclarationReflection) {
