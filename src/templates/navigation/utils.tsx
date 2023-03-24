@@ -79,7 +79,7 @@ export function getComment(model: DeclarationReflection) {
 
   let content = [];
   for (const line of summary) {
-    let lineText = line.text;
+    const lineText = line.text;
 
     const indexOfNewline = lineText.indexOf('\n');
     if (indexOfNewline !== -1) {
