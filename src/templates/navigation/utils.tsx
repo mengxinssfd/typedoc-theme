@@ -75,27 +75,22 @@ export function partition<T>(iter: Iterable<T>, predicate: (item: T) => boolean)
 
 export function getComment(model: DeclarationReflection) {
   const comment = model.comment || model.signatures?.[0].comment;
-  const summary = comment?.summary ?? [];
+  const summary = comment?.summary;
+  if (!summary || !summary.length) return '';
 
-  let content = [];
+  const content = [];
   for (const line of summary) {
     const lineText = line.text;
-
-    const indexOfNewline = lineText.indexOf('\n');
-    if (indexOfNewline !== -1) {
-      content[content.length - 1] = content[content.length - 1] + lineText.slice(0, indexOfNewline);
-      break;
-    }
-
     content.push(lineText.trim());
   }
-
-  const commentContent = content
-    .join(' ')
+  const textContent = content.join(' ');
+  const commentContent = textContent.split(/[\r\n]/)[0] ?? textContent;
+  const parsedCommentContent = commentContent
     .replace(/\s,\s/g, ", ")
     .replace(/\s\./g, ".");
-  return commentContent ? <div class="menu-item-desc">{commentContent}</div> : '';
+  return parsedCommentContent ? typedoc_1.JSX.createElement("div", { class: "menu-item-desc" }, parsedCommentContent) : '';
 }
+
 export function getReadme(model: DeclarationReflection) {
   const readme = model.readme?.[0]?.text.split(/(\r?\n)+/)[0].replace(/#+\s*/, '');
   return readme ? <div class="menu-item-desc">{readme}</div> : '';
