@@ -88,7 +88,7 @@ export function getComment(model: DeclarationReflection) {
   const parsedCommentContent = commentContent
     .replace(/\s,\s/g, ", ")
     .replace(/\s\./g, ".");
-  return parsedCommentContent ? typedoc_1.JSX.createElement("div", { class: "menu-item-desc" }, parsedCommentContent) : '';
+  return parsedCommentContent ? JSX.createElement("div", { class: "menu-item-desc" }, parsedCommentContent) : '';
 }
 
 export function getReadme(model: DeclarationReflection) {
