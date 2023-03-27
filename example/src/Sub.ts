@@ -5,6 +5,21 @@ import { Super } from './Super';
  */
 export class Sub extends Super {
   /**
+   * override
+   */
+  constructor(
+    /**
+     * I'm protected prop `a`, assign to this.foo
+     */
+    protected a: string,
+    /**
+     * I'm protected prop `b`, assign to this.bar
+     */
+    protected b: number,
+  ) {
+    super(a, b);
+  }
+  /**
    * I'm method `test`, override `Super`
    *
    * @see Super

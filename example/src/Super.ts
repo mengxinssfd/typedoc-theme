@@ -7,14 +7,14 @@ export abstract class Super {
    */
   private static foo = 'foo';
   /**
-   * I'm private static prop `bar`
+   * I'm public static prop `bar`
    */
   static bar = 2;
 
   /**
    * I'm constructor
-   * @param foo assign to Super.prototype.foo
-   * @param bar assign to Super.prototype.bar
+   * @param foo assign to this.foo
+   * @param bar assign to this.bar
    */
   constructor(foo: string, bar: number) {
     this.foo = foo;

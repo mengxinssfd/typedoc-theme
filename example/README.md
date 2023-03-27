@@ -16,14 +16,14 @@ export abstract class Super {
    */
   private static foo = 'foo';
   /**
-   * I'm private static prop `bar`
+   * I'm public static prop `bar`
    */
   static bar = 2;
 
   /**
    * I'm constructor
-   * @param foo assign to Super.prototype.foo
-   * @param bar assign to Super.prototype.bar
+   * @param foo assign to this.foo
+   * @param bar assign to this.bar
    */
   constructor(foo: string, bar: number) {
     this.foo = foo;
@@ -43,6 +43,7 @@ export abstract class Super {
    */
   abstract test(): void;
 }
+
 ```
 
 ## class Sub
@@ -54,6 +55,21 @@ import { Super } from './Super';
  * I'm class `Sub`
  */
 export class Sub extends Super {
+  /**
+   * override
+   */
+  constructor(
+    /**
+     * I'm protected prop `a`, assign to this.foo
+     */
+    protected a: string,
+    /**
+     * I'm protected prop `b`, assign to this.bar
+     */
+    protected b: number,
+  ) {
+    super(a, b);
+  }
   /**
    * I'm method `test`, override `Super`
    *
@@ -76,4 +92,5 @@ export class Sub extends Super {
     console.log('protect');
   }
 }
+
 ````
