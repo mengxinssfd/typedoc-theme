@@ -5,10 +5,10 @@
   - [request-template](https://mengxinssfd.github.io/request-template/)
 - [example-code](https://github.com/mengxinssfd/typedoc-theme/tree/main/example)
 
-
-<img width="100%" alt="截屏2022-11-22 17 15 45" src="https://user-images.githubusercontent.com/28827520/203274626-01e0b9fe-d34a-433b-8a2e-b76831c61d8e.png">
-<img width="100%" alt="截屏2022-11-22 17 15 01" src="https://user-images.githubusercontent.com/28827520/203274710-7aed38b1-9ba0-4248-8a1c-d765efc8aba6.png">
-
+![](https://user-images.githubusercontent.com/28827520/227901035-ca6c59cc-5710-40fc-bafa-c46512dd40c4.png)
+![](https://user-images.githubusercontent.com/28827520/227901614-11a815bd-2d3a-4b2d-8a90-292380601aee.png)
+![](https://user-images.githubusercontent.com/28827520/227901683-cee48723-e09f-45d5-87d6-7342c90c75f1.png)
+![](https://user-images.githubusercontent.com/28827520/227901740-3c5d97ab-cdfe-40ef-ba52-2683e0ee8443.png)
 
 ## Installation
 
