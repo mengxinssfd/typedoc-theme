@@ -86,9 +86,14 @@ export function getComment(model: DeclarationReflection) {
   const textContent = content.join(' ');
   const commentContent = textContent.split(/[\r\n]/)[0] ?? textContent;
   const parsedCommentContent = commentContent
-    .replace(/\s,\s/g, ", ")
-    .replace(/\s\./g, ".");
-  return parsedCommentContent ? JSX.createElement("div", { class: "menu-item-desc" }, parsedCommentContent) : '';
+    .replace(/\s,\s/g, ', ')
+    .replace(/\s\./g, '.')
+    .replace(/(:\s?)?```(tsx?)?$/, '')
+    .replace(/^#\s*/, '')
+    .replace(/^\[([^\]]+)$/, '$1');
+  return parsedCommentContent
+    ? JSX.createElement('div', { class: 'menu-item-desc' }, parsedCommentContent)
+    : '';
 }
 
 export function getReadme(model: DeclarationReflection) {
