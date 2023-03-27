@@ -1,7 +1,4 @@
 import { DefaultThemeRenderContext, JSX, PageEvent, Reflection } from 'typedoc';
-import * as Fs from 'fs';
-import * as Path from 'path';
-const style = Fs.readFileSync(Path.resolve(__dirname, '../../assets/style.css')).toString();
 
 export const defaultLayout = (context: DefaultThemeRenderContext, props: PageEvent<Reflection>) => (
   <html class="default" lang={context.options.getValue('htmlLang')}>
@@ -19,9 +16,7 @@ export const defaultLayout = (context: DefaultThemeRenderContext, props: PageEve
 
       <link rel="stylesheet" href={context.relativeURL('assets/style.css')} />
       <link rel="stylesheet" href={context.relativeURL('assets/highlight.css')} />
-      <style>
-        <JSX.Raw html={style} />
-      </style>
+      <link rel="stylesheet" href={context.relativeURL('assets/my-theme.css')} />
       {context.options.getValue('customCss') && (
         <link rel="stylesheet" href={context.relativeURL('assets/custom.css')} />
       )}
