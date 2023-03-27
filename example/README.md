@@ -1,96 +1,72 @@
-# example
+# The TypeDoc Example
 
-typedoc theme example.
+Welcome to the TypeDoc example! TypeDoc is a documentation generator for
+TypeScript.
 
-this example contains two classes: `Super`, `Sub`.
-
-## class Super
-
-```typescript
-/**
- * I'm abstract class `Super`
- */
-export abstract class Super {
-  /**
-   * I'm private static prop `foo`
-   */
-  private static foo = 'foo';
-  /**
-   * I'm public static prop `bar`
-   */
-  static bar = 2;
-
-  /**
-   * I'm constructor
-   * @param foo assign to this.foo
-   * @param bar assign to this.bar
-   */
-  constructor(foo: string, bar: number) {
-    this.foo = foo;
-    this.bar = bar;
-  }
-  /**
-   * I'm prop `foo`
-   */
-  private foo: string;
-  /**
-   * I'm prop `bar`
-   */
-  public bar: number;
-
-  /**
-   * I'm abstract method `test`
-   */
-  abstract test(): void;
-}
+TypeDoc automatically documents every variable, function, and class
+that is exported by your project. You can add explanations and examples to your
+documentation site by annotating your code with doc comments, e.g.
 
 ```
-
-## class Sub
-
-````typescript
-import { Super } from './Super';
-
 /**
- * I'm class `Sub`
+ * Calculates the square root of a number.
+ *
+ * @param x the number to calculate the root of.
+ * @returns the square root if `x` is non-negative or `NaN` if `x` is negative.
  */
-export class Sub extends Super {
-  /**
-   * override
-   */
-  constructor(
-    /**
-     * I'm protected prop `a`, assign to this.foo
-     */
-    protected a: string,
-    /**
-     * I'm protected prop `b`, assign to this.bar
-     */
-    protected b: number,
-  ) {
-    super(a, b);
-  }
-  /**
-   * I'm method `test`, override `Super`
-   *
-   * @see Super
-   *
-   * @example
-   * ```ts
-   * const sub = new Sub('a',2);
-   * sub.test();
-   * ```
-   */
-  override test(): void {
-    console.log('test');
-  }
-
-  /**
-   * I'm protected method `protect`
-   */
-  protected protect(): void {
-    console.log('protect');
-  }
+export function sqrt(x: number): number {
+    return Math.sqrt(x);
 }
+```
 
-````
+This project shows off some of TypeDoc's features:
+
+-   Built-in support for various TypeScript language constructs
+-   Markdown in doc comments
+-   Syntax highligting in code blocks
+
+## Index of Examples
+
+**Click the "Exports" link in the sidebar to see a complete list of everything in
+the package.**
+
+Here are some examples we wanted to highlight:
+
+### Rendering
+
+-   Markdown showcase: {@link markdownShowcase | `markdownShowcase`}
+-   Syntax highlighting showcase: {@link syntaxHighlightingShowcase | `syntaxHighlightingShowcase` }
+
+### Functions
+
+-   Simple functions: {@link sqrt | `sqrt` } and {@link sqrtArrowFunction | `sqrtArrowFunction` }
+-   A generic function: {@link concat | `concat` }
+-   Functions that take an options object: {@link makeHttpCallA | `makeHttpCallA` } and {@link makeHttpCallB | `makeHttpCallB` }
+-   An overloaded function: {@link overloadedFunction | `overloadedFunction` }
+-   An external function exported under a different name: {@link lodashSortBy | `lodashSortBy` }
+
+### Types
+
+-   Type aliases: {@link SimpleTypeAlias | `SimpleTypeAlias` } and {@link ComplexGenericTypeAlias | `ComplexGenericTypeAlias` }
+-   Interfaces: {@link User | `User` } and {@link AdminUser | `AdminUser` }
+
+### Classes
+
+-   A basic class: {@link Customer | `Customer` }
+-   A subclass: {@link DeliveryCustomer | `DeliveryCustomer` }
+-   A complex class: {@link CancellablePromise | `CancellablePromise` }
+-   A class that extends a built-in generic type: {@link StringArray | `StringArray` }
+
+### Enums
+
+-   A basic enum: {@link SimpleEnum | `SimpleEnum` }
+-   Using the `@enum` tag: {@link EnumLikeObject | `EnumLikeObject` }
+
+### Variables
+
+-   {@link PI | `PI` }, {@link STRING_CONSTANT | `STRING_CONSTANT` }, and {@link ObjectConstant | `ObjectConstant` }
+
+### React Components
+
+-   Basic React components: {@link CardA | `CardA` } and {@link CardB | `CardB` }
+-   A complex React component: {@link EasyFormDialog | `EasyFormDialog` } and {@link EasyFormDialogProps | `EasyFormDialogProps` }

@@ -6,6 +6,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "outDir": "dist",
+    "jsx": "react-jsx"
   },
   "include": ["src"]
 }

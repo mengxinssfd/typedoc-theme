@@ -1,12 +1,18 @@
 {
-  "name": "example",
+  "name": "@mxssfd/theme-example-example",
   "version": "1.0.0",
   "scripts": {
     "build:docs": "typedoc"
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/lodash": "^4.14.191",
+    "@types/react": "^18.0.29",
+    "@types/react-dom": "^18.0.11",
     "typedoc": "^0.23.28",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
