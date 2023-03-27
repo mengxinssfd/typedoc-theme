@@ -1,0 +1,14 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "customCss": "./typedoc.theme.css",
+  "includeVersion": true,
+  "entryPoints": ["./src/index.ts"],
+  "sort": ["static-first", "kind", "enum-value-ascending"],
+  "out": "./docs",
+  "searchGroupBoosts": {
+    "Classes": 1.5
+  },
+  "navigationLinks": {
+    "GitHub": "https://github.com/mengxinssfd/typedoc-theme"
+  }
+}
