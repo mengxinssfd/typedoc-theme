@@ -83,3 +83,6 @@ code.tsd-tag {
   visibility: hidden;
 }
 
+.tsd-page-toolbar .tsd-toolbar-icon {
+  text-align: center;
+}
