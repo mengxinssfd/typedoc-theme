@@ -32,8 +32,6 @@
   "scripts": {
     "ts-check": "tsc --noEmit",
     "build": "tsc",
-    "docs": "tsc && typedoc src --plugin ./dist/index.js --theme my-theme",
-    "docs:only": "typedoc src --plugin ./dist/index.js --theme my-theme",
-    "build:docs:example": "tsc && pnpm -C example docs"
+    "example:build": "tsc && pnpm -C example build:docs"
   }
 }

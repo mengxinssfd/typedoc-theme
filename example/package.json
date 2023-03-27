@@ -2,7 +2,7 @@
   "name": "example",
   "version": "1.0.0",
   "scripts": {
-    "docs": "typedoc src --plugin ../dist/index.js --theme my-theme"
+    "build:docs": "typedoc src --plugin ../dist/index.js --theme my-theme"
   },
   "license": "MIT",
   "devDependencies": {
