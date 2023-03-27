@@ -86,3 +86,11 @@ code.tsd-tag {
 .tsd-page-toolbar .tsd-toolbar-icon {
   text-align: center;
 }
+@media (max-width: 1024px) {
+  #tsd-search .title {
+    max-width: calc(100vw - 22rem);
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+  }
+}
