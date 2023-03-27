@@ -1,8 +1,11 @@
 # @mxssfd/typedoc-theme
 
+- [DEMO](https://mengxinssfd.github.io/typedoc-theme/)
+- [EXAMPLE](https://github.com/mengxinssfd/typedoc-theme/tree/main/example)
+
 ## install
 ```shell
-npm install @mxssfd/typedoc-theme
+npm install typedoc @mxssfd/typedoc-theme -D
 ```
 ## use
 ```shell
