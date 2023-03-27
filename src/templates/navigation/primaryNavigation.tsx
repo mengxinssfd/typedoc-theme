@@ -46,7 +46,7 @@ export function primaryNavigation(
   // const commentContent = comment?.summary?.[0]?.text.split(/(\r\n)+/)[0];
 
   return (
-    <nav class="tsd-navigation primary">
+    <nav class={`tsd-navigation primary modules-total-${int.length}`}>
       <details class="tsd-index-accordion" open={true}>
         <summary class="tsd-accordion-summary">
           <h3>{context.icons.chevronDown()} Modules</h3>
