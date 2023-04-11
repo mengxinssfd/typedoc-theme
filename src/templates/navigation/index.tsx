@@ -1,3 +1,3 @@
 export * from './navigation';
-export * from './primaryNavigation';
-export * from './secondaryNavigation';
+export * from './pageSidebar';
+export * from './pageNavigation';

@@ -1,15 +1,5 @@
-import { DeclarationReflection, JSX, Reflection } from 'typedoc';
+import { DeclarationReflection, JSX, ProjectReflection, Reflection } from 'typedoc';
 
-export function inPath(thisPage: Reflection, toCheck: Reflection | undefined): boolean {
-  while (toCheck) {
-    if (toCheck.isProject()) return false;
-
-    if (thisPage === toCheck) return true;
-
-    toCheck = toCheck.parent;
-  }
-  return false;
-}
 /**
  * Insert word break tags ``<wbr>`` into the given string.
  *
@@ -43,36 +33,6 @@ export function classNames(names: Record<string, boolean | null | undefined>, ex
   return css.length ? css : undefined;
 }
 
-/**
- * Renders the reflection name with an additional `?` if optional.
- */
-export function renderName(refl: Reflection) {
-  if (!refl.name) {
-    return <em>{wbr(refl.kindString!)}</em>;
-  }
-
-  if (refl.flags.isOptional) {
-    return <>{wbr(refl.name)}?</>;
-  }
-
-  return wbr(refl.name);
-}
-
-export function partition<T>(iter: Iterable<T>, predicate: (item: T) => boolean): [T[], T[]] {
-  const left: T[] = [];
-  const right: T[] = [];
-
-  for (const item of iter) {
-    if (predicate(item)) {
-      left.push(item);
-    } else {
-      right.push(item);
-    }
-  }
-
-  return [left, right];
-}
-
 export function getComment(model: DeclarationReflection) {
   const comment = model.comment || model.signatures?.[0].comment;
   const summary = comment?.summary;
@@ -99,4 +59,16 @@ export function getComment(model: DeclarationReflection) {
 export function getReadme(model: DeclarationReflection) {
   const readme = model.readme?.[0]?.text.split(/(\r?\n)+/)[0].replace(/#+\s*/, '');
   return readme ? <div class="menu-item-desc">{readme}</div> : '';
+}
+
+export function getDisplayName(refl: Reflection) {
+  let version = '';
+  if (
+    (refl instanceof DeclarationReflection || refl instanceof ProjectReflection) &&
+    refl.packageVersion
+  ) {
+    version = ` - v${refl.packageVersion}`;
+  }
+
+  return `${refl.name}${version}`;
 }

@@ -1,11 +1,8 @@
-import { DefaultTheme } from 'typedoc';
+import { DefaultTheme, JSX, PageEvent, Reflection } from 'typedoc';
 import { ThemeContext } from './ThemeContext';
 
 export class MyTheme extends DefaultTheme {
-  private _contextCache?: ThemeContext;
-
-  override getRenderContext(): ThemeContext {
-    this._contextCache ||= new ThemeContext(this, this.application.options);
-    return this._contextCache;
+  override getRenderContext(pageEvent: PageEvent<Reflection>): ThemeContext {
+    return new ThemeContext(this, pageEvent, this.application.options);
   }
 }

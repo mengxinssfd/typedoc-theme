@@ -1,18 +1,25 @@
-import { DefaultTheme, DefaultThemeRenderContext, JSX, Options } from 'typedoc';
+import {
+  DefaultTheme,
+  DefaultThemeRenderContext,
+  JSX,
+  Options,
+  PageEvent,
+  Reflection,
+} from 'typedoc';
 import * as templates from './templates';
 
-type Template = (context: DefaultThemeRenderContext, model: any) => JSX.Element | void;
-
-function bind<T>(template: Template, context: ThemeContext) {
-  return (model: any) => template(context, model);
+function bind<F, L extends any[], R>(fn: (f: F, ...a: L) => R, first: F) {
+  return (...r: L) => fn(first, ...r);
 }
 
 export class ThemeContext extends DefaultThemeRenderContext {
-  constructor(theme: DefaultTheme, options: Options) {
-    super(theme, options);
-
+  constructor(theme: DefaultTheme, page: PageEvent<Reflection>, options: Options) {
+    super(theme, page, options);
+    this.init();
+  }
+  init(){
     for (const [key, tpl] of Object.entries(templates)) {
-      this[key as keyof ThemeContext] = bind(tpl, this) as any;
+      this[key as keyof ThemeContext] = bind(tpl as any, this) as any;
     }
   }
 }

@@ -28,7 +28,7 @@ export const toolbar = (context: DefaultThemeRenderContext, props: PageEvent<Ref
           href={context.options.getValue('titleLink') || context.relativeURL('index.html')}
           class="title"
         >
-          {props.project.name}
+          {props.project.name} - v{props.project.packageVersion}
         </a>
         {context.settings()}
       </div>
