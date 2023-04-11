@@ -1,6 +1,6 @@
 {
   "name": "@mxssfd/typedoc-theme",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "repository": "https://github.com/mengxinssfd/typedoc-theme.git",
   "author": "DYH <xinzon32177@163.com>",
