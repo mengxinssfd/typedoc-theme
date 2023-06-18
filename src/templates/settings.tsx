@@ -59,7 +59,12 @@ export function settings(context: DefaultThemeRenderContext) {
   return (
     <div class="tsd-navigation settings">
       <details class="tsd-index-accordion" open={false}>
-        <summary class="tsd-accordion-summary">Settings {context.icons.chevronDown()}</summary>
+        <summary class="tsd-accordion-summary">
+          <h3>
+            {context.icons.chevronDown()}
+            Settings
+          </h3>
+        </summary>
         <div class="tsd-accordion-details">
           {visibilityOptions.length && (
             <div class="tsd-filter-visibility">
@@ -71,7 +76,7 @@ export function settings(context: DefaultThemeRenderContext) {
           )}
           <div class="tsd-theme-toggle">
             <h4 class="uppercase">Theme</h4>
-            <select id="theme">
+            <select id="tsd-theme">
               <option value="os">OS</option>
               <option value="light">Light</option>
               <option value="dark">Dark</option>
