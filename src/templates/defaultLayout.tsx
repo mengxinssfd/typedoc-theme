@@ -39,6 +39,11 @@ export const defaultLayout = (
           src={context.relativeURL('assets/search.js', true)}
           id="search-script"
         ></script>
+        <script
+          async
+          src={context.relativeURL('assets/navigation.js', true)}
+          id="tsd-nav-script"
+        ></script>
         {context.hook('head.end')}
       </head>
       <body>
@@ -79,6 +84,7 @@ export const defaultLayout = (
         <div class="overlay"></div>
 
         {context.analytics()}
+        {context.iconsCache()}
         {context.hook('body.end')}
       </body>
     </html>
