@@ -66,7 +66,8 @@ const actions = {
       json.version = version;
       fs.writeFileSync(pkgPath, JSON.stringify(json, null, 2));
     }
-    updatePackage(path.resolve(rootDir, `package.json`), version);
+    updatePackage(path.resolve(rootDir, 'example/package.json'), version);
+    updatePackage(path.resolve(rootDir, 'package.json'), version);
   },
   async gitCommit(targetVersion: string) {
     const { stdout } = await exec('git', ['diff'], { stdio: 'pipe' });
