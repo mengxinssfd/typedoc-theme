@@ -7,6 +7,7 @@ import chalk from 'chalk';
 import * as fs from 'fs';
 import PkgJson from '../package.json';
 import minimist from 'minimist';
+import fse from 'fs-extra';
 
 const rootDir = path.resolve(__dirname, '..');
 const args = minimist(process.argv.slice(2));
@@ -188,7 +189,10 @@ async function setup() {
   }
 
   step('\nRunning update versions...');
-  await actions.updateVersions( config.targetVersion);
+  await actions.updateVersions(config.targetVersion);
+
+  step('\nRunning rm dist...');
+  fse.removeSync(path.resolve(rootDir, 'dist'));
 
   step('\nRunning build...');
   await actions.build();

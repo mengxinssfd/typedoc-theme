@@ -23,6 +23,7 @@
     "node": ">= 14"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
     "@types/minimist": "^1.2.5",
     "@types/node": "^18.15.10",
     "@types/semver": "^7.5.8",
@@ -31,6 +32,7 @@
     "enquirer": "^2.4.1",
     "esno": "^4.7.0",
     "execa": "^9.3.0",
+    "fs-extra": "^11.2.0",
     "gh-pages": "^6.0.0",
     "minimist": "^1.2.8",
     "prettier": "^3.3.2",
