@@ -39,7 +39,7 @@ export function navigation(context: DefaultThemeRenderContext, props: PageEvent<
 
     return (
       <details
-        class={classNames({ 'tsd-index-accordion': true }, nameClasses)}
+        class={classNames({ 'tsd-accordion': true }, nameClasses)}
         open={inPath(mod)}
         data-key={mod.getFullName()}
       >

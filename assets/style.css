@@ -56,9 +56,6 @@
   align-items: center;
   font-size: 14px;
 }
-.tsd-navigation.settings .tsd-index-accordion {
-  position: relative;
-}
 .tsd-navigation.settings .tsd-accordion-summary {
   display: inline-flex;
   vertical-align: top;
@@ -157,11 +154,4 @@ code.tsd-tag {
 }
 #tsd-search .title {
   padding-left: 10px;
-}
-
-.tsd-index-accordion .tsd-accordion-summary > svg {
-  transform: rotate(-90deg);
-}
-.tsd-index-accordion[open] .tsd-accordion-summary > svg {
-  transform: rotate(0deg);
 }

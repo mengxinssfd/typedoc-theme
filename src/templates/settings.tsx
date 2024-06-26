@@ -67,8 +67,8 @@ export function settings(context: DefaultThemeRenderContext) {
       <details class="tsd-accordion" open={false}>
         <summary class="tsd-accordion-summary">
           <h3>
-            {context.icons.chevronDown()}
             {context.i18n.theme_settings()}
+            {context.icons.chevronDown()}
           </h3>
         </summary>
         <div class="tsd-accordion-details">
