@@ -5,7 +5,7 @@
   "repository": "https://github.com/mengxinssfd/typedoc-theme.git",
   "author": "DYH <xinzon32177@163.com>",
   "license": "MIT",
-  "packageManager": "pnpm@7.1.0",
+  "packageManager": "pnpm@9.3.0",
   "keywords": [
     "typedoc-theme"
   ],
@@ -24,12 +24,12 @@
   "devDependencies": {
     "@types/node": "^18.15.10",
     "gh-pages": "^6.0.0",
-    "prettier": "^3.0.3",
-    "typedoc": "^0.25.1",
-    "typescript": "^5.2.2"
+    "prettier": "^3.3.2",
+    "typedoc": "^0.26.2",
+    "typescript": "^5.5.2"
   },
   "peerDependencies": {
-    "typedoc": "^0.25.1"
+    "typedoc": "^0.26.2"
   },
   "scripts": {
     "ts-check": "tsc --noEmit",

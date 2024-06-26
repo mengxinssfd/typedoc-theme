@@ -19,7 +19,7 @@ export class ThemeContext extends DefaultThemeRenderContext {
   }
   init(){
     for (const [key, tpl] of Object.entries(templates)) {
-      this[key as keyof ThemeContext] = bind(tpl as any, this) as any;
+      (this as any)[key] = bind(tpl as any, this);
     }
   }
 }
