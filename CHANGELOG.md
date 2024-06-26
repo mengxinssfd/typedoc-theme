@@ -1,3 +1,7 @@
+## [1.1.6](https://github.com/mengxinssfd/typedoc-theme/compare/v1.1.6-beta.2...v1.1.6) (2024-06-26)
+
+
+
 ## [1.1.6-beta.2](https://github.com/mengxinssfd/typedoc-theme/compare/v1.1.6-beta.1...v1.1.6-beta.2) (2024-06-26)
 
 
