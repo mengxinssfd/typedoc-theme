@@ -14,7 +14,7 @@ export function load(app: Application) {
       <JSX.Raw html="console.log(`Loaded ${location.href}`)" />
     </script>
   ));
-  app.listenTo(app.renderer, RendererEvent.END, () => {
+  app.renderer.on(RendererEvent.END, () => {
     const from = resolve(__dirname, '../assets/style.css');
     const to = resolve(app.options.getValue('out'), 'assets/my-theme.css');
     cpSync(from, to);
