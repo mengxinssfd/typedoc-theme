@@ -5,7 +5,7 @@
   "repository": "https://github.com/mengxinssfd/typedoc-theme.git",
   "author": "DYH <xinzon32177@163.com>",
   "license": "MIT",
-  "packageManager": "pnpm@7.1.0",
+  "packageManager": "pnpm@9.3.0",
   "keywords": [
     "typedoc-theme"
   ],
