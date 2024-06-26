@@ -11,8 +11,6 @@
     "jsxFactory": "JSX.createElement",
     "jsxFragmentFactory": "JSX.Fragment",
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true
   },
-  "include": ["src", "scripts"]
+  "include": ["src"]
 }
