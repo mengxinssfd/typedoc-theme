@@ -7,7 +7,8 @@ import {
   Reflection,
   ReflectionKind,
 } from 'typedoc';
-import { classNames, wbr, getDisplayName, getReadme, getComment } from '../utils';
+
+import { classNames, getComment, getDisplayName, getReadme, wbr } from '../utils';
 
 export function navigation(context: DefaultThemeRenderContext, props: PageEvent<Reflection>) {
   // Create the navigation for the current page
@@ -17,9 +18,7 @@ export function navigation(context: DefaultThemeRenderContext, props: PageEvent<
     <nav class="tsd-navigation">
       {link(props.project)}
       <ul class="tsd-small-nested-navigation">
-        {props.project.children?.map((c) => (
-          <li>{links(c)}</li>
-        ))}
+        {props.project.children?.map((c) => <li>{links(c)}</li>)}
       </ul>
     </nav>
   );
@@ -63,6 +62,14 @@ export function navigation(context: DefaultThemeRenderContext, props: PageEvent<
     fn: typeof getReadme | typeof getComment = getComment,
     nameClasses?: string,
   ) {
+    let sectionName: string;
+    if (child.kind === ReflectionKind.Module) {
+      const splitPath = getDisplayName(child).split('/');
+      sectionName = KebabToCamel(splitPath[splitPath.length - 1]);
+    } else {
+      sectionName = getDisplayName(child);
+    }
+
     return (
       <a
         href={context.urlTo(child)}
@@ -70,7 +77,7 @@ export function navigation(context: DefaultThemeRenderContext, props: PageEvent<
       >
         {context.icons[child.kind]()}
         <div>
-          {wbr(getDisplayName(child))}
+          {wbr(sectionName)}
           {fn(child as DeclarationReflection)}
         </div>
       </a>
@@ -84,5 +91,16 @@ export function navigation(context: DefaultThemeRenderContext, props: PageEvent<
       iter = iter.parent;
     } while (iter);
     return false;
+  }
+
+  function KebabToCamel(str: string): string {
+    let arr = str.split('-');
+    let capital = arr.map((item, index) =>
+      index ? item.charAt(0).toUpperCase() + item.slice(1).toLowerCase() : item.toLowerCase(),
+    );
+    // ^-- change here.
+    let capitalString = capital.join('');
+
+    return capitalString[0].toUpperCase() + capitalString.slice(1);
   }
 }

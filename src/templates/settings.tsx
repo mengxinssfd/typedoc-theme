@@ -1,4 +1,7 @@
-import { DefaultThemeRenderContext, JSX } from 'typedoc';
+import {
+  DefaultThemeRenderContext,
+  JSX
+} from 'typedoc'
 
 function camelToTitleCase(text: string) {
   return (
@@ -62,7 +65,7 @@ export function settings(context: DefaultThemeRenderContext) {
         <summary class="tsd-accordion-summary">
           <h3>
             {context.icons.chevronDown()}
-            Settings
+            SET
           </h3>
         </summary>
         <div class="tsd-accordion-details">
