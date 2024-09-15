@@ -1,14 +1,5 @@
-import {
-  DefaultThemeRenderContext,
-  JSX
-} from 'typedoc'
+import { DefaultThemeRenderContext, JSX, ReflectionFlag } from 'typedoc';
 
-function camelToTitleCase(text: string) {
-  return (
-    text.substring(0, 1).toUpperCase() +
-    text.substring(1).replace(/[a-z][A-Z]/g, (x) => `${x[0]} ${x[1]}`)
-  );
-}
 function buildFilterItem(
   context: DefaultThemeRenderContext,
   name: string,
@@ -25,6 +16,13 @@ function buildFilterItem(
     </li>
   );
 }
+const flagOptionNameToReflectionFlag = {
+  protected: ReflectionFlag.Protected,
+  private: ReflectionFlag.Private,
+  external: ReflectionFlag.External,
+  inherited: ReflectionFlag.Inherited,
+};
+
 export function settings(context: DefaultThemeRenderContext) {
   const defaultFilters = context.options.getValue('visibilityFilters') as Record<string, boolean>;
 
@@ -41,7 +39,7 @@ export function settings(context: DefaultThemeRenderContext) {
         buildFilterItem(
           context,
           filterName,
-          camelToTitleCase(key.substring(1)),
+          context.internationalization.translateTagName(key as `@${string}`),
           defaultFilters[key],
         ),
       );
@@ -52,7 +50,12 @@ export function settings(context: DefaultThemeRenderContext) {
       key === 'inherited'
     ) {
       visibilityOptions.push(
-        buildFilterItem(context, key, camelToTitleCase(key), defaultFilters[key]),
+        buildFilterItem(
+          context,
+          key,
+          context.internationalization.flagString(flagOptionNameToReflectionFlag[key]),
+          defaultFilters[key],
+        ),
       );
     }
   }
@@ -61,28 +64,28 @@ export function settings(context: DefaultThemeRenderContext) {
 
   return (
     <div class="tsd-navigation settings">
-      <details class="tsd-index-accordion" open={false}>
+      <details class="tsd-accordion" open={false}>
         <summary class="tsd-accordion-summary">
           <h3>
+            {context.i18n.theme_settings()}
             {context.icons.chevronDown()}
-            SET
           </h3>
         </summary>
         <div class="tsd-accordion-details">
           {visibilityOptions.length && (
             <div class="tsd-filter-visibility">
-              <h4 class="uppercase">Member Visibility</h4>
-              <form>
-                <ul id="tsd-filter-options">{...visibilityOptions}</ul>
-              </form>
+              <span class="settings-label">{context.i18n.theme_member_visibility()}</span>
+              <ul id="tsd-filter-options">{...visibilityOptions}</ul>
             </div>
           )}
           <div class="tsd-theme-toggle">
-            <h4 class="uppercase">Theme</h4>
+            <label class="settings-label" for="tsd-theme">
+              {context.i18n.theme_theme()}
+            </label>
             <select id="tsd-theme">
-              <option value="os">OS</option>
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
+              <option value="os">{context.i18n.theme_os()}</option>
+              <option value="light">{context.i18n.theme_light()}</option>
+              <option value="dark">{context.i18n.theme_dark()}</option>
             </select>
           </div>
         </div>

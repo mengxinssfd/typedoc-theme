@@ -10,7 +10,7 @@
     "jsx": "react",
     "jsxFactory": "JSX.createElement",
     "jsxFragmentFactory": "JSX.Fragment",
-    "skipLibCheck": true
+    "skipLibCheck": true,
   },
   "include": ["src"]
 }

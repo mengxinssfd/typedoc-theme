@@ -1,15 +1,34 @@
 {
   "$schema": "https://typedoc.org/schema.json",
   "customCss": "./typedoc.theme.css",
-  "includeVersion": true,
-  "plugin": ["../"],
-  "theme": "my-theme",
-  "entryPoints": ["./src/index.ts"],
-  "sort": ["static-first", "kind", "enum-value-ascending"],
-  "out": "./docs",
+  "name": "TypeDoc Example",
+  "lang": "en",
+  "entryPoints": ["./src"],
+  "categorizeByGroup": false,
+  "searchCategoryBoosts": {
+    "Component": 2,
+    "Model": 1.2
+  },
   "searchGroupBoosts": {
     "Classes": 1.5
   },
+  "highlightLanguages": [
+    "typescript",
+    "tsx",
+    "css",
+    "json",
+    "jsonc",
+    "python",
+    "yaml"
+  ],
+  "markdownItOptions": {
+    "html": true
+  },
+  "includeVersion": true,
+  "plugin": ["../"],
+  "theme": "my-theme",
+  "sort": ["static-first", "kind", "enum-value-ascending"],
+  "out": "./docs",
   "navigationLinks": {
     "GitHub": "https://github.com/mengxinssfd/typedoc-theme"
   }

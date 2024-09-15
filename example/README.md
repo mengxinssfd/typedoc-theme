@@ -23,7 +23,7 @@ This project shows off some of TypeDoc's features:
 
 -   Built-in support for various TypeScript language constructs
 -   Markdown in doc comments
--   Syntax highligting in code blocks
+-   Syntax highlighting in code blocks
 
 ## Index of Examples
 
@@ -34,8 +34,9 @@ Here are some examples we wanted to highlight:
 
 ### Rendering
 
--   Markdown showcase: {@link markdownShowcase | `markdownShowcase`}
--   Syntax highlighting showcase: {@link syntaxHighlightingShowcase | `syntaxHighlightingShowcase` }
+-   External Markdown: [here](./src/documents/external-markdown.md)
+-   Markdown showcase: [here](./src/documents/markdown.md)
+-   Syntax highlighting showcase: [here](./src/documents/syntax-highlighting.md)
 
 ### Functions
 

@@ -1,5 +1,6 @@
 import {
   DeclarationReflection,
+  DocumentReflection,
   DefaultThemeRenderContext,
   JSX,
   PageEvent,
@@ -18,12 +19,13 @@ export function navigation(context: DefaultThemeRenderContext, props: PageEvent<
     <nav class="tsd-navigation">
       {link(props.project)}
       <ul class="tsd-small-nested-navigation">
+        {props.project.documents?.map((c) => <li>{links(c)}</li>)}
         {props.project.children?.map((c) => <li>{links(c)}</li>)}
       </ul>
     </nav>
   );
 
-  function links(mod: DeclarationReflection) {
+  function links(mod: DeclarationReflection | DocumentReflection) {
     const children =
       (mod.kindOf(ReflectionKind.SomeModule | ReflectionKind.Project) && mod.children) || [];
 
@@ -38,7 +40,7 @@ export function navigation(context: DefaultThemeRenderContext, props: PageEvent<
 
     return (
       <details
-        class={classNames({ 'tsd-index-accordion': true }, nameClasses)}
+        class={classNames({ 'tsd-accordion': true }, nameClasses)}
         open={inPath(mod)}
         data-key={mod.getFullName()}
       >
@@ -58,7 +60,7 @@ export function navigation(context: DefaultThemeRenderContext, props: PageEvent<
   }
 
   function link(
-    child: DeclarationReflection | ProjectReflection,
+    child: DeclarationReflection | ProjectReflection | DocumentReflection,
     fn: typeof getReadme | typeof getComment = getComment,
     nameClasses?: string,
   ) {
@@ -84,7 +86,7 @@ export function navigation(context: DefaultThemeRenderContext, props: PageEvent<
     );
   }
 
-  function inPath(mod: DeclarationReflection | ProjectReflection) {
+  function inPath(mod: DeclarationReflection | ProjectReflection | DocumentReflection) {
     let iter: Reflection | undefined = props.model;
     do {
       if (iter == mod) return true;

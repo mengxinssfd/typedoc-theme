@@ -1,11 +1,11 @@
 {
   "name": "@mxssfd/typedoc-theme",
-  "version": "1.1.3",
+  "version": "1.1.6",
   "main": "dist/index.js",
   "repository": "https://github.com/mengxinssfd/typedoc-theme.git",
   "author": "DYH <xinzon32177@163.com>",
   "license": "MIT",
-  "packageManager": "pnpm@7.1.0",
+  "packageManager": "pnpm@9.3.0",
   "keywords": [
     "typedoc-theme"
   ],
@@ -16,27 +16,41 @@
   "files": [
     "dist",
     "LICENSE",
-    "assets"
+    "assets",
+    "CHANGELOG.md"
   ],
   "engines": {
     "node": ">= 14"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/minimist": "^1.2.5",
     "@types/node": "^18.15.10",
+    "@types/semver": "^7.5.8",
     "cpy-cli": "^5.0.0",
+    "chalk": "^5.3.0",
+    "conventional-changelog-cli": "^5.0.0",
+    "enquirer": "^2.4.1",
+    "esno": "^4.7.0",
+    "execa": "^9.3.0",
+    "fs-extra": "^11.2.0",
     "gh-pages": "^6.0.0",
-    "prettier": "^3.0.3",
-    "typedoc": "^0.25.1",
-    "typescript": "^5.2.2"
+    "minimist": "^1.2.8",
+    "prettier": "^3.3.2",
+    "semver": "^7.6.2",
+    "typedoc": "^0.26.2",
+    "typescript": "^5.5.2"
   },
   "peerDependencies": {
-    "typedoc": "^0.25.1"
+    "typedoc": "^0.26.2"
   },
   "scripts": {
     "ts-check": "tsc --noEmit",
     "build": "tsc",
     "build:khanonjs": "npm run build && cpy ./dist/**/*.* ../khanon.js/mxssfd-typedoc-theme/dist",
     "example:build": "tsc && pnpm -C example build:docs",
-    "example:deploy": "gh-pages -d example/docs"
+    "example:deploy": "gh-pages -d example/docs",
+    "release": "esno scripts/release.ts",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   }
 }

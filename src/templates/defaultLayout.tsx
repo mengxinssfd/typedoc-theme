@@ -14,10 +14,10 @@ export const defaultLayout = (
   props: PageEvent<ContainerReflection>,
 ) => {
   return (
-    <html class="default" lang={context.options.getValue('htmlLang')}>
+    <html class="default" lang={context.options.getValue('lang')}>
       <head>
-        <meta charSet="utf-8" />
-        {context.hook('head.begin')}
+        <meta charset="utf-8" />
+        {context.hook('head.begin', context)}
         <meta http-equiv="x-ua-compatible" content="IE=edge" />
         <title>
           {props.model.isProject()
@@ -36,18 +36,23 @@ export const defaultLayout = (
         <script defer src={context.relativeURL('assets/main.js', true)}></script>
         <script
           async
+          src={context.relativeURL('assets/icons.js', true)}
+          id="tsd-icons-script"
+        ></script>
+        <script
+          async
           src={context.relativeURL('assets/search.js', true)}
-          id="search-script"
+          id="tsd-search-script"
         ></script>
         <script
           async
           src={context.relativeURL('assets/navigation.js', true)}
           id="tsd-nav-script"
         ></script>
-        {context.hook('head.end')}
+        {context.hook('head.end', context)}
       </head>
       <body>
-        {context.hook('body.begin')}
+        {context.hook('body.begin', context)}
         <script>
           <JSX.Raw html='document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"' />
         </script>
@@ -60,21 +65,21 @@ export const defaultLayout = (
           })}
         >
           <div class="col-content">
-            {context.hook('content.begin')}
+            {context.hook('content.begin', context)}
             {context.header(props)}
             {template(props)}
-            {context.hook('content.end')}
+            {context.hook('content.end', context)}
           </div>
           <div class="col-sidebar">
             <div class="page-menu">
-              {context.hook('pageSidebar.begin')}
+              {context.hook('pageSidebar.begin', context)}
               {context.pageSidebar(props)}
-              {context.hook('pageSidebar.end')}
+              {context.hook('pageSidebar.end', context)}
             </div>
             <div class="site-menu">
-              {context.hook('sidebar.begin')}
+              {context.hook('sidebar.begin', context)}
               {context.sidebar(props)}
-              {context.hook('sidebar.end')}
+              {context.hook('sidebar.end', context)}
             </div>
           </div>
         </div>
@@ -83,9 +88,9 @@ export const defaultLayout = (
 
         <div class="overlay"></div>
 
-        {context.analytics()}
-        {context.iconsCache()}
-        {context.hook('body.end')}
+        {/*{context.analytics()}*/}
+        {/*{context.iconsCache()}*/}
+        {context.hook('body.end', context)}
       </body>
     </html>
   );
