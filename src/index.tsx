@@ -15,9 +15,16 @@ export function load(app: Application) {
     </script>
   ));
   app.renderer.on(RendererEvent.END, () => {
-    const from = resolve(__dirname, '../assets/style.css');
-    const to = resolve(app.options.getValue('out'), 'assets/my-theme.css');
-    cpSync(from, to);
+    const moveList: [from: string, to: string][] = [
+      ['style.css', 'my-theme.css'],
+      ['onload.js', 'onload.js'],
+    ];
+    moveList.forEach(([from, to]) =>
+      cpSync(
+        resolve(__dirname, '../assets', from),
+        resolve(app.options.getValue('out'), 'assets', to),
+      ),
+    );
   });
   app.renderer.defineTheme('my-theme', MyTheme);
 }
