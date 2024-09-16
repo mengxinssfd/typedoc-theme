@@ -37,11 +37,11 @@
     "minimist": "^1.2.8",
     "prettier": "^3.3.2",
     "semver": "^7.6.2",
-    "typedoc": "^0.26.2",
+    "typedoc": "^0.26.7",
     "typescript": "^5.5.2"
   },
   "peerDependencies": {
-    "typedoc": "^0.26.2"
+    "typedoc": "^0.26.7"
   },
   "scripts": {
     "ts-check": "tsc --noEmit",
