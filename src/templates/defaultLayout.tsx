@@ -34,6 +34,7 @@ export const defaultLayout = (
           <link rel="stylesheet" href={context.relativeURL('assets/custom.css', true)} />
         )}
         <script defer src={context.relativeURL('assets/main.js', true)}></script>
+        <script defer src={context.relativeURL('assets/onload.js', true)}></script>
         <script
           async
           src={context.relativeURL('assets/icons.js', true)}
